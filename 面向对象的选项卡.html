@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+#div1 input{background:white;}
+#div1 input.active{background:yellow;}
+#div1 div{width:150px;height:150px;background:#ccc;display:none;}
+</style>
+<script>
+window.onload=function()
+{
+	new TabSwitch('div1');
+}
+function TabSwitch(id) //window.onload变为构造函数
+{
+	var _this=this;
+	var oDiv=document.getElementById(id);
+	this.oBtn=oDiv.getElementsByTagName('input');
+	this.aDiv=oDiv.getElementsByTagName('div');
+
+	for(var i=0;i<this.oBtn.length;i++)
+	{
+		this.oBtn[i].index=i;
+		this.oBtn[i].onclick=function()
+		{
+			_this.fnClick(this); //this指的是按钮。_this指的是new出来的TabSwitch对象
+		};
+	}
+};
+
+TabSwitch.prototype.fnClick=function(oBtn)  //用原型加方法
+{
+	for(var i=0;i<this.oBtn.length;i++)
+	{
+		this.oBtn[i].className='';
+		this.aDiv[i].style.display='none';
+	}
+		oBtn.className='active';
+		this.aDiv[oBtn.index].style.display='block';
+}
+
+</script>
+</head>
+<body>
+<div id="div1">
+<input class="active" type="button" value="1">
+<input  type="button" value="2">
+<input  type="button" value="3">
+<div>aaa</div>
+<div>bbbb</div>
+<div>sss</div>
+</div>	
+</body>
+</html>

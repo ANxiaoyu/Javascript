@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+#div1{width:100px;height:100px;background:red;position:absolute;}
+.box{border:1px dashed black;position:absolute;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var disX=0;
+	var diaY=0;
+
+	oDiv.onmousedown=function(ev) //鼠标按下
+	{
+		var oEvent=ev||event;
+		//确定鼠标相对于div的固定位置
+		disX=oEvent.clientX-oDiv.offsetLeft; //鼠标距离div的左边距
+		disY=oEvent.clientY-oDiv.offsetTop;//鼠标距离div的上边距
+
+		var oBox=document.createElement('div');
+		oBox.className='box';
+		oBox.style.width=oDiv.offsetWidth-2+'px';
+		oBox.style.height=oDiv.offsetHeight-2+'px';
+		oBox.style.left=oDiv.offsetLeft+'px';
+		oBox.style.top=oDiv.offsetTop+'px';
+
+		document.body.appendChild(oBox);
+
+		document.onmousemove=function(ev) //鼠标按下后移动
+		{
+			var oEvent=ev||event;
+			//根据鼠标坐标确定div的坐标
+			var l=oEvent.clientX-disX;
+			var t=oEvent.clientY-disY;
+			oBox.style.left=l+'px';
+			oBox.style.top=t+'px';
+
+		}
+
+		document.onmouseup=function() //鼠标抬起停止移动
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+
+			oDiv.style.left=oBox.offsetLeft+'px';
+			oDiv.style.top=oBox.offsetTop+'px';
+			document.body.removeChild(oBox);
+		}
+
+		return false; //解决火狐bug
+
+	}
+}
+</script>
+</head>
+<body>
+<div id="div1"></div>	
+</body>
+</html>

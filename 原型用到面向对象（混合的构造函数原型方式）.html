@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script>
+//用构造函数加属性
+function CreatePerson(name,qq)   //构造函数
+{	
+	//自己new对象时，系统偷偷替咱们做：创建一个空白对象
+	//var this=new Object();
+
+	//加工
+	this.name=name; //为对象创建属性
+	this.qq=qq;
+	//系统自己返回
+	//return this;
+}
+
+//用原型加方法
+CreatePerson.prototype.showName=function() 
+{
+		alert('我的名字叫：'+this.name);
+}
+
+CreatePerson.prototype.showQQ=function()
+{
+		alert('我的QQ号：'+this.qq);
+}
+
+var obj1=new CreatePerson('blue','253795374');
+var obj2=new CreatePerson('lisi','028375489');
+
+obj1.showName();
+obj1.showQQ();
+
+obj2.showName();
+obj2.showQQ();
+</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script>
+
+var arr1=new Array(22,33,44,66,77,100);
+var arr2=new Array(45,678,1,2,3,1);
+
+Array.prototype.sum=function()  //给类都加上sum()方法。用原型加方法
+//arr1.sum=function()
+{
+	var result=0;
+	for(var i=0;i<this.length;i++)
+	{
+		result+=this[i];
+	}
+
+	return result;
+};
+
+
+alert(arr1.sum());
+alert(arr2.sum());
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

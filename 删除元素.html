@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script>
+	window.onload=function()
+	{
+		var oUl=document.getElementById('ul1');
+		var aA=document.getElementsByTagName('a');
+		for(var i=0;i<aA.length;i++)
+		{
+			aA[i].onclick=function(){
+				oUl.removeChild(this.parentNode);//删除节点li;
+			};
+		}
+	}
+</script>
+</head>
+<body>
+<ul id="ul1">
+	<li>11111<a href="javascript:;">删除</a></li>
+	<li>22222<a href="javascript:;">删除</a></li>
+	<li>33333<a href="javascript:;">删除</a></li>
+	<li>44444<a href="javascript:;">删除</a></li>
+</ul>	
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<link rel="stylesheet" href="仿Flash.css"type="text/css"media="screen">
+<script>
+function getByClass(oParent,sClass)
+{
+	var aEle=oParent.getElementsByTagName('*');
+	var aResult=[];
+
+	for(var i=0;i<aEle.length;i++)
+	{
+		if(aEle[i].className==sClass)
+		{
+			aResult.push(aEle[i]);
+		}
+	}
+	return aResult;
+}
+
+window.onload=function()
+{
+	var oDiv=document.getElementById('playimages');
+	var oBtnPrev=getByClass(oDiv,'prev')[0];
+	var oBtnNext=getByClass(oDiv,'next')[0];
+	var oMarkLeft=getByClass(oDiv,'mark_left')[0];
+	var oMarkRight=getByClass(oDiv,'mark_right')[0];
+	
+	var oDivSmall=getByClass(oDiv,'small_pic')[0];
+	var aLiSmall=oDivSmall.getElementsByTagName('li');
+
+	var oUlBig=getByClass(oDiv,'big_pic')[0];
+	var aLiBig=oUlBig.getElementsByTagName('li');
+	var nowZIndex=2;
+	
+	//左右按钮
+	oBtnPrev.onmouseover=oMarkLeft.onmouseover=function()
+	{
+		startMove(oBtnPrev,'opacity',100);
+	}
+	oBtnPrev.onmouseout=oMarkLeft.onmouseout=function()
+	{
+		startMove(oBtnPrev,'opacity',0);
+	}
+
+	oBtnNext.onmouseover=oMarkRight.onmouseover=function()
+	{
+		startMove(oBtnNext,'opacity',100);
+	}
+	oBtnNext.onmouseout=oMarkRight.onmouseout=function()
+	{
+		startMove(oBtnNext,'opacity',0);
+	}
+
+	//大图切换
+	for(var i=0;i<aLiSmall.length;i++)
+	{
+		aLiSmall[i].index=i;
+		aLiSmall[i].onclick=function()
+		{
+			aLiBig[this.index].style.height=0;
+		}
+	}
+}
+</script>
+</head>
+<body>
+<div id="playimages" class="play">
+	<ul class="big_pic">
+		<div class="prev"></div>
+		<div class="next"></div>
+
+		<div class="text">加载图片说明...</div>
+		<div class="length">计算图片数量...</div>
+
+		<a class="mark_left" href="javascript:;"></a>
+		<a class="mark_right" href="javacript:;"></a>
+		<div class="bg"></div>
+
+		<li style="z-index:1"><img src="img1/1.jpg"/></li>
+		<li><img src="img1/2.jpg"/></li>
+		<li><img src="img1/3.jpg"/></li>
+		<li><img src="img1/4.jpg"/></li>
+	</ul>
+	<div class="small_pic">
+		<ul style="width:390px">
+			<li style="filter:100; opacity:1;"><img src="img1/1.1.jpg"/></li>
+			<li><img src="img1/2.2.jpg"/></li>
+		 	<li><img src="img1/3.3.jpg"/></li>
+			<li><img src="img1/4.4.jpg"/></li>
+		</ul>
+	</div>	
+</div>
+</body>
+</html>
