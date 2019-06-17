@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <form id="frm" action="">
+    <input type="text" name="name"><br>
+    <input type="text" name="pwd"><br>
+    <input type="radio" name="sex">
+    <input type="radio" class="a" name="sex">
+    <input type="submit" value="登录">
+  </form>
+
+  <input type="text" name="test"><br>
+
+  <script>
+      //var frm=document.getElementById('frm');
+      //获取到的是form中所有的input标签
+      //var radios=frm.getElementsByTagName('input');
+
+      //NodeList标签
+      //节点的集合
+      //var radios = document.getElementsByName('sex');
+      //console.log(radios);
+
+      //IE9以后才支持的  兼容性问题
+      document.getElementsByClassName();
+
+      //IE8以后才支持的
+      var frm = document.querySelector('#frm');
+      var texts = frm.querySelectorAll('input[type=text]');
+      console.log(texts);
+  </script>
+</body>
+</html>
