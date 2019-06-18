@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="btn" value="点我">
+
+    <script>
+        //var obj = {
+        //   name:'zs',
+        //    say:function(){
+
+        //    }
+        //};
+
+        //javascript的动态特性，可以随时给对象增加成员
+       // obj.test = function() {
+
+        //}
+
+        //可以给网页上所有可见的元素注册事件
+
+        //根据id获取按钮元素
+        var btn = document.getElementById('btn');
+        //给按钮注册事件
+        //on 当什么时候 click点击
+        btn.onclick = function() {
+            //匿名函数
+            alert('别点我，疼');
+        }
+
+        //事件三要素
+        //事件源：触发事件的元素 btn
+        //事件名称： click
+        //事件处理函数：触发事件之后做的事情
+    </script>
+</body>
+</html>
