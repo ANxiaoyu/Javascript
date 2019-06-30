@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#" id="link">切换图片</a>
+    <br>
+    <img src="images/a.jpg" alt="" id="img">
+
+    <script>
+        //元素的属性 -- 包含了标签对应的属性
+        //元素（对象） 封装了标签对应的属性
+
+        //1 获取超链接
+        var link = document.getElementById('link');
+        var flag=1; //flag=1 此时显示a.jpg  flag=2 此时显示b.jpg
+        //2 给超链接注册点击事件
+        link.onclick = function() {
+            //3 切换图片
+            var img = document.getElementById('img');
+            if(flag===1){
+                flag=2;
+                img.src = 'images/b.jpg';
+            }else{
+                flag=1;
+                img.src = 'images/a.jpg';
+            }
+            //4 取消a的默认行为
+            return false;
+        }
+    </script>
+</body>
+</html>
