@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .hidden {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn" value="隐藏">
+    <div id="box"></div>
+
+    <script>
+        // 1 获取元素
+        var btn = document.getElementById('btn');
+        // isShow 记录box的显示和隐藏 true显示  false隐藏
+        var isShow = true;
+        // 2 给按钮注册事件
+        btn.onclick = function () {
+            var box = document.getElementById('box');
+            // 当前box 是显示状态
+            if(isShow){
+                // 3 控制div的显示隐藏
+                box.className = 'hidden';
+                // 修改按钮上的文字
+                this.value = '显示';
+                isShow = false;
+            }else {
+                box.className = 'show';
+                
+                //在事件处理函数中 this-- 事件源 触发事件的对象
+                this.value = '隐藏';
+                isShow = true;
+            }
+        }
+
+
+        //函数中this --> window对象
+        function fn() {
+            console.log(this);
+        }
+        fn();
+        //方法中this --> 是调用该方法的对象
+        var obj = {
+            name:'zs',
+            say: function (){
+                console.log(this);
+            }
+        }
+        obj.say();
+        // 构造函数中this --> 当前对象
+
+        // 事件处理函数中this --> 触发事件的对象 事件源
+    </script>
+</body>
+</html>

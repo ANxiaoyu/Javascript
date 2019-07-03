@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="radio">
+    <input type="button" value="按钮" id="btn">
+
+    <script>
+        // 1 设置文本框中的内容
+        var inputs = document.getElementsByTagName('input');
+        var i=0, len=inputs.length;
+        for(; i<len; i++){
+            //获取集合中的元素
+            var input = inputs[i];
+            // 判断当前input是否是文本框
+            // if(input.type === 'text') {
+            //     input.value = i+1;
+            // }
+            if (input.type !== 'text') {
+                //不是文本框
+                continue;
+            }
+            input.value = i+1;
+        }
+
+        // 2 点击按钮获取文本框中的内容，并用 | 分割形成一个新的字符串
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://www.baidu.com" id="link" title="baidu">百度</a>
+    <img src="images/a.jpg" alt="图片" id="img">
+
+    <script>
+        //1 获取非表单元素的属性
+        var link = document.getElementById('link');
+        var img = document.getElementById('img');
+
+        console.log(link.id);
+        console.log(link.href);
+        console.log(link.title);
+        console.log(img.src);
+        console.log(img.alt);
+
+        //2 修改元素的属性
+        img.src = 'images/b.jpg';
+        link.title = '改过的title';
+        link.href = 'http://www.cnbeta.com';
+
+        // 因为class是关键字，不能作为变量或属性名称，所以元素对应的class属性设置为了className
+        img.className = 'hide';
+    </script>
+</body>
+</html>

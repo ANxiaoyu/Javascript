@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">box</div>
+    <script src="common.js"></script>
+    <script>
+        var box = document.getElementById('box');
+
+        // 老版本的IE支持innerText
+        // box.innerText = '';
+        // 老版本的firefox 支持textContent
+
+        //  var a; // undefined
+        //  var o = {};
+        //  console.log(o.a); // undefined
+
+        // 写一个函数，处理innerText和textContent的兼容性问题
+        setInnerText(box, 'hello');
+        console.log(getInnerText(box));
+    </script>
+</body>
+</html>

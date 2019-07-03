@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .hidden {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn" value="隐藏">
+    <div id="box"></div>
+    ESLint 检查代码规范的工具
+
+    <script>
+        // 1 获取元素
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        // isShow 记录box的显示和隐藏 true 显示  false 隐藏
+        var isShow = true;
+        // 2 给按钮注册事件
+        btn.onclick = function () {
+            // 当前box 是显示的状态
+            if(isShow){
+                // 3 控制div的显示隐藏
+                box.className = 'hidden';
+                // 修改按钮上的文字
+                btn.value = '显示';
+                isShow = false;
+            }else {
+                box.className = 'show';
+                btn.value = '隐藏';
+                isShow = true;
+            }
+            
+        }
+    </script>
+</body>
+</html>

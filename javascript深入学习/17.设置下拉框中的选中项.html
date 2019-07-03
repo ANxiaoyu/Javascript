@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <select id="sel">
+        <option>请随机选择</option>
+        <option>火锅</option>
+        <option>串串</option>
+        <option>干锅</option>
+        <option>马玉涛</option>
+        <option>黄焖鸡</option>
+        <option id="op">凉面稀饭</option>
+        <option>沙拉</option>
+    </select>
+    <input type="button" value="随机" id="btn">
+
+    <script src="common.js"></script>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            // 让某个option选中
+            // var op = document.getElementById('op');
+            // op.selected = true;
+
+            // 随机设置某个option被选中
+            //获取所有的option
+            var sel = document.getElementById('sel');
+            var options = sel.getElementsByTagName('option');
+            //1 - option.length-1
+            //生成随机的索引
+            var index = getRandom(1, options.length-1);
+            // 根据索引获取option
+            options[index].selected = true;
+        }
+    </script>
+</body>
+</html>

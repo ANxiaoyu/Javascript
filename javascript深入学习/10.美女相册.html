@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: "Helvetica","Arial",serif;
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        #imagegallery {
+
+        }
+        #imagegallery a {
+            margin: 0px 20px 20px 0px;
+            padding: 0px;
+            display: inline;
+        }
+        #imagegallery a img {
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>美女画廊</h2>
+    <div id="imagegallery">
+        <a href="images/1.jpg" title="美女A">
+            <img src="images/1-small.jpg" width="100px" alt="美女1">
+        </a>
+        <a href="images/2.jpg" title="美女B">
+            <img src="images/2-small.jpg" width="100px" alt="美女2">
+        </a>
+        <a href="images/3.jpg" title="美女C">
+            <img src="images/3-small.jpg" width="100px" alt="美女3">
+        </a>
+        <a href="images/4.jpg" title="美女D">
+            <img src="images/4-small.jpg" width="100px" alt="美女4">
+        </a>
+    </div>
+    <div style="clear: both"></div>
+    <img src="images/placeholder.png" id="images" alt="" width="450px">
+    <p id="des">选择一个图片</p>
+
+    <script>
+        // 1 获取所有的a标签 对应的元素
+        var imagegallery = document.getElementById('imagegallery');
+        var links = imagegallery.getElementsByTagName('a');
+        // 2 给所有的a元素注册点击事件
+        // for(var i=0,len=links.length;i<len;i++){
+        // }
+        var i=0, len=links.length;
+        for (; i<len; i++){
+            // 获取当前元素
+            var link = links[i];
+            link.onclick = function () {
+                // 3 切换图片和文字
+                var image = document.getElementById('images');
+                var des = document.getElementById('des');
+                // 设置图片
+                image.src = this.href;
+                // 设置文字
+                des.innerText = this.title;
+
+                // 取消默认行为的执行
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

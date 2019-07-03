@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        我是box里面的p标签<p>我是一个段落</p>
+    </div>
+    <span></span>
+    <a href=""></a>
+    <p></p>
+    &lt;p&gt;   &nbsp;  &copy;
+
+    <script>
+        var box = document.getElementById('box');
+        // 1 获取标签之间的内容
+
+        //innerHTML 和 innerText 获取内容的区别
+        //innerHTML 获取内容的时候，会把标签也获取到
+        //innerText 获取内容的时候，会把标签过滤掉
+        // console.log(box.innerHTML);
+        // console.log(box.innerText);
+
+        // 2 设置标签之间的内容
+        //innerHTML设置内容的时候，如果内容中有标签，会解析标签
+        //innerHTML 不是标准的DOM属性
+        //box.innerHTML = '学习使我<b>快乐！</b> <p>这是一个段落</p>';
+
+        //设置内容的时候，如果内容中有标签，会对标签进行转义
+        //最早IE中增加的属性，老版本的firefox不支持此属性
+        // 老版本的ff  textContent
+        box.innerText = '学习使我<b>快乐！</b> <p>这是一个段落</p>';
+    </script>
+</body>
+</html>
