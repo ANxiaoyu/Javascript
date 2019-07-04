@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .nodeSmall {
+            width: 50px;
+            height: 50px;
+            background: url(images/bgs.png) no-repeat -159px -51px;
+            position: fixed;
+            right: 10px;
+            top: 40%;
+        }
+        .erweima {
+            position: absolute;
+            top: 0;
+            left: -150px;
+        }
+        .hide {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="nodeSmall" id="node_small">
+        <div class="erweima hide" id="er">
+            <img src="images/456.png" alt="">
+        </div>
+    </div>
+
+    <script>
+        // 获取nodeSmall 注册事件，鼠标经过的事件onmouseover,鼠标离开的事件onmouseout
+        var node_small = document.getElementById('node_small');
+        // 鼠标经过显示二维码
+        node_small.onmouseover = function () {
+            var er = document.getElementById('er');
+            // er.className = 'erweima show';
+            er.style.display = 'block';
+        }
+        // 鼠标离开隐藏二维码
+        node_small.onmouseout = function () {
+            var er =document.getElementById('er');
+            // er.className = 'erweima hide';
+            er.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

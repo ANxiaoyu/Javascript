@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div>11111</div>
+        <div>22222</div>
+        <p>333333</p>
+        <span>444444</span>
+    </div>
+
+    <script>
+        var box = document.getElementById('box');
+        // 获取box 中所有的子节点
+        console.log(box.childNodes);
+        for (var i=0;i<box.childNodes.length; i++){
+            //遍历所有的子节点，找到里面的元素
+            if(box.childNodes[i].nodeType === 1){
+                console.log(box.childNodes[i]);
+            }
+        }
+
+        // 获取所有子元素
+        console.log(box.children);
+
+        // 父元素
+        console.log(box.parentNode);
+    </script>
+</body>
+</html>

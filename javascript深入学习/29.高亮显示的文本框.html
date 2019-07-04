@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="button" value="按钮">
+
+    <script>
+        // 给所有的文本框注册事件 获取焦点的事件
+        // 当文本框获得焦点之后 高亮显示，失去焦点 恢复
+        var texts = document.querySelectorAll('input[type=text]');
+        var i=0, len=texts.length;
+        for (; i<len; i++){
+            // 获得每一个text
+            var text = texts[i];
+            // 获得焦点
+            text.onfocus = function () {
+                // 高亮显示
+                this.style.backgroundColor = 'orange';
+            }
+
+            // 失去焦点
+            text.onblur = function() {
+                this.style.backgroundColor = '';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink ;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        var box = document.getElementById('box');
+        // 样式操作
+        // 1 设置类样式
+        // box.className = 'box';
+        // 2 设置style
+        // console.dir(box);
+
+        // box.style.width = '200px';
+        // box.style.height = '200px';
+        // box.style.backgroundColor = 'orange';
+
+        // cssText 获取标签的style属性中的字符串
+        // console.log(box.style.cssText);
+
+        //box.style.cssText = 'width:200px; height: 200px background-color: orange;';
+
+        //如果设置的样式属性比较多的时候 推荐使用class
+        //如果设置的样式属性比较少 推荐使用style
+    </script>
+</body>
+</html>

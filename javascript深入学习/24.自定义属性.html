@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bg {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" stuId="1">张山</div><a href="#">删除</a>
+
+    <script>
+        var box = document.getElementById('box');
+        // 在chrome中不能使用这种方式获取标签的自定义属性
+        // console.log(box.stuId); // undefined
+
+        //获取标签对应的自定义属性
+        console.log(box.getAttribute('stuId'));
+        // 也可以获取标签自身具有的属性
+        console.log(box.getAttribute('id'));
+
+
+        // 设置标签的自定义属性
+        box.setAttribute('test','hello');
+        // 设置标签本身具有的属性
+        box.setAttribute('class', 'bg');
+
+
+        // 不可以设置标签的自定义属性，但是box对象本身具有了abc属性
+        box.abd = 'hello';
+        console.log(box.abd);
+    </script>
+</body>
+</html>

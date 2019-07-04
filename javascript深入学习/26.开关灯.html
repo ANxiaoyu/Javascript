@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="关灯" id="btn">
+
+    <script>
+        // 1 给按钮注册事件
+        var btn = document.getElementById('btn');
+        // 记录开关灯
+        var isOpen = true;
+        btn.onclick = function() {
+           if(isOpen) {
+               // 如果当前是开灯状态，则关灯
+               // 2 修改body的背景颜色
+               document.body.style.backgroundColor = 'black';
+               this.value = '开灯';
+               isOpen = false;
+           } else {
+               document.body.style.backgroundColor = '';
+               this.value = '关灯';
+               isOpen = true;
+           }
+        }
+    </script>
+</body>
+</html>

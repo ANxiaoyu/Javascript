@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="mv">
+        <li>宋大韩</li>
+        <li>宋民国</li>
+        <li>宋万岁</li>
+        <li>李书言</li>
+        <li>李书俊</li>
+    </ul>
+
+    <script>
+        var bg;  //鼠标经过的时候，记录颜色
+        // 隔行变色 奇数 lightgray   偶数 白色
+        // 获取所有的li 
+        var lists = document.querySelectorAll('#mv li');
+        var i=0, len=lists.length;
+        for(; i<len; i++){
+            // 判断i是奇数还是偶数
+            if(i % 2 ===0){
+                // i是从0开始的，奇数行的颜色
+                lists[i].style.backgroundColor = 'lightgray';
+            }else {
+                lists[i].style.backgroundColor = '';
+            }
+
+
+            // 鼠标放上高亮显示
+            lists[i].onmouseover = function() {
+                bg = this.style.backgroundColor;
+                // 鼠标放到li上高亮显示
+                this.style.backgroundColor = 'skyblue';
+            }
+            lists[i].onmouseout = function() {
+                this.style.backgroundColor = bg;
+            }
+        }
+    </script>
+</body>
+</html>

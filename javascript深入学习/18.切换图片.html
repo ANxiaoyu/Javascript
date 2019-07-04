@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="切换图片" id="btn">
+    <br>
+    <br>
+    <img src="images/00.jpg" alt="" id="img">
+
+    <script>
+        var arr = [
+            'images/00.jpg',
+            'images/01.jpg',
+            'images/02.jpg',
+            'images/03.jpg',
+            'images/04.jpg',
+            'images/05.jpg',
+            'images/06.jpg',
+            'images/07.jpg',
+            'images/08.jpg',
+            'images/09.jpg'
+        ];
+
+        // 记录索引 默认是0
+        var index = 0;
+        // 1 给按钮添加注册事件
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            var img = document.getElementById('img');
+            // 2 切换到下一张图片
+            index++;
+            img.src = arr[index];
+            // 3 如果是最后一张图片，切换到第一张图片
+            if(index === arr.length-1) {
+                index = -1;
+            }
+        }
+    </script>
+</body>
+</html>

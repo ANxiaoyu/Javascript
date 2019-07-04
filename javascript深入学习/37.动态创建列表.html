@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <p>111</p>
+    </div>
+    <script src="common.js"></script>
+    <script>
+        var data = [
+            {"key":"电视机","qre":6544},
+            {"key":"电视柜","qre":712319},
+            {"key":"电视机55寸","qre":45073},
+            {"key":"电视盒子","qre":154098},
+            {"key":"电视机32寸","qre":31726},
+            {"key":"电视机40寸","qre":7497},
+            {"key":"电视机65寸","qre":7491},
+            {"key":"电视挂架","qre":32393},
+            {"key":"电视机50","qre":144712},
+            {"key":"电视机55寸 京东自营","qre":334},
+        ];
+
+        // 动态创建列表
+        var box = document.getElementById('box');
+        // 创建ul
+        // 在内存中创建了一个DOM对象
+        var ul = document.createElement('ul');
+        box.appendChild(ul);
+
+        // 遍历数组，生成li
+        var i= 0, len=data.length;
+        for (; i<len; i++){
+            // 创建li
+            var li = document.createElement('li');
+            ul.appendChild(li);
+            // 设置li中内容
+            setInnerText(li, data[i].key);
+
+            // 鼠标放到li上高亮显示
+            li.onmouseover = function (){
+                this.style.backgroundColor = 'lightgray';
+            }
+            li.onmouseout = function() {
+                this.style.backgroundColor = '';
+            }
+        }
+    </script>
+</body>
+</html>

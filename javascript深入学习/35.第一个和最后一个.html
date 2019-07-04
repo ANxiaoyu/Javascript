@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul">
+        <li>first</li>
+        <li>12334</li>
+        <li>12345</li>
+        <li>12345</li>
+        <li>12345</li>
+        <li>last</li>
+    </ul>
+    <script src="common.js"></script>
+    <script>
+        var ul = document.getElementById('ul');
+
+        // 获取第一个子节点
+        // console.log(ul.firstChild);
+        // 获取第一个子元素
+        // console.log(ul.firstElementChild);
+
+        // // 获取最后一个子节点
+        // console.log(ul.lastChild);
+        // // 获取最后一个子元素
+        // console.log(ul.lastElementChild);
+
+        var firstElement = getFirstElementChild(ul);
+        console.log(firstElement);
+    </script>
+
+</body>
+</html>

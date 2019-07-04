@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .gray {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="gray" id="txtSearch" value="请输入搜索关键字"><input type="button" value="搜索">
+
+    <script>
+        // 当文本框获得焦点的时候 onfocus,如果文本框中的内容是 请输入搜索关键字 则清空文本框，设置黑色字体
+
+        // 让根据id获取元素 ，变得简单
+        // var txtSearch = document.getElementById('txtSearch');
+        function getElement(id) {
+            return document.getElementById(id);
+        }
+
+        var txtSearch = getElement('txtSearch');
+        // 当文本框获得焦点的时候
+        txtSearch.onfocus = function () {
+            // 判断当前文本框中的文字
+            if(this.value === '请输入搜索关键字') {
+                this.value = '';
+                this.className = '';
+            }
+        }
+
+        // 当文本框失去焦点的时候 onblur。如果文本框中的内容为空,设置文本框中的内容为 请输入搜索关键字，设置字体颜色为gray
+        txtSearch.onblur = function () {
+            // 判断当前文本框是否为空
+            if(this.value.length === 0){
+                this.value = '请输入搜索关键字';
+                this.className = 'gray';
+            }
+        }
+    </script>
+</body>
+</html>

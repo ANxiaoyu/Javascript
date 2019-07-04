@@ -25,3 +25,18 @@ function getRandom(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max-min+1)) + min;
 }
+
+// 处理firstElementChild的兼容性问题
+function getFirstElementChild(parent){
+    // 如果当前浏览器 支持firstElementChlid
+    if(parent.firstElementChild){
+        return firstElementChild;
+    }
+    var node, nodes = parent.childNodes, i=0;
+    while (node = nodes[i++]){
+        if(node.nodeType === 1){
+            return node;
+        }
+    }
+    return null;
+}
