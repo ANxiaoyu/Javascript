@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+    <ul id="ul">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+
+    <ul id="second">
+
+    </ul>
+
+    <script>
+        // var ul = document.getElementById('ul');
+        // var li = document.createElement('li');
+        // li.innerHTML = '测试';
+
+        // // 把动态创建的元素插入到指定的位置之前
+        // ul.insertBefore(li, ul.children[2]);
+
+        // // 替换元素
+        // var div = document.createElement('div');
+        // div.innerHTML = 'div';
+        // ul.replaceChild(div, ul.children[0]);
+
+        // // 删除ul 中的所有li
+        // for (var i=0, len = ul.children.length; i<len; i++){
+        //     //移除第一个后，剩下的元素会重新排列，原来索引为1的会变为0，以此类推。解决方法是：一直删除索引为0的，或者从最后开始移除
+        //     var li = ul.children[0]; 
+        //     ul.removeChild(li);
+        // }
+
+        // innerTHML在清空元素的时候，不会删除元素身上的事件对应的函数
+        //存在内存泄漏
+        // ul.innerTHML = '';
+
+
+        // 移动li
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            var ul = document.getElementById('ul');
+            var second = document.getElementById('second');
+
+            second.appendChild(ul.children[0]);
+        }
+    </script>
+</body>
+</html>

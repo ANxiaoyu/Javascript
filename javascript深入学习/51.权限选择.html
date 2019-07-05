@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        select {
+            height: 200px;
+            width: 200px;
+            background-color: #33cccc;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <select id="all" multiple="multiple">
+        <option>增</option>
+        <option>删</option>
+        <option>改</option>
+        <option>查</option>
+    </select>
+
+    <input type="button" value=">>" id="btn1">
+    <input type="button" value="<<" id="btn2">
+    <input type="button" value=">" id="btn3">
+    <input type="button" value="<" id="btn4">
+
+    <select id="select" multiple="multiple"></select>
+
+    <script src="js/common.js"></script>
+    <script>
+        // 权限选择
+        // 存放所有权限的列表
+        var all = document.getElementById('all');
+        // 存放选中的权限的列表
+        var select = document.getElementById('select');
+
+        var i = 0, len = all.children.length;
+        // 1 全选
+        document.getElementById('btn1').onclick = function() {
+            for(; i<len; i++){
+                var li = all.children[0];
+                select.appendChild(li);
+            }
+        } 
+
+        // 2 全不选
+
+        // 3 选择选中的项
+        document.getElementById('btn3').onclick = function() {
+            for(i = 0; i<len; i++){
+                var li = all.children[i];
+                // 判断li是否选中
+                if(li.selected) {
+                    select.appendChild(li);
+                    i--;
+                }
+            }
+        }
+        // 4 移除选中的项
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box table {
+            width: 500px;
+            border: 1px solid #000;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        thead tr {
+            background-color: lightgray;
+            height: 50px;
+        }
+        th,
+        td {
+            border: 1px solid #000;
+            height: 50px;
+        }
+        tbody {
+            text-align: center;
+        }
+        tbody td a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/table.js"></script>
+    <script>
+        var headData = ['姓名', '年龄', '工资', '操作'];
+        var bodyData = [
+            {name:'ls', age:'18', salary:5040},
+            {name:'bzr', age:'35', salary:3400},
+            {name:'ge', age:'26', salary:6500},
+            {name:'liu', age:'24', salary:7000},
+            {name:'mc', age:'28', salary:8000}
+        ];
+        
+        var box = document.getElementById('box');
+        createTable(box,headData,bodyData);
+    </script>
+</body>
+</html>

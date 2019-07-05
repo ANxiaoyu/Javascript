@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        // 影响性能的两个地方
+        // 1 字符串的拼接
+        // 2 循环中不停的渲染
+
+        console.time('flag');
+
+        var box = document.getElementById('box');
+        var data = ['zs', 'ls', 'ww'];
+
+        var arr = [];
+        arr.push('<ul>');
+        
+        // 遍历数组 生成li
+        data.forEach(function(item, index){
+            // forEach 遍历数组，参数是一个函数
+            // 这个函数有两个参数，第一个参数是 数组中的元素，第二个参数是 索引
+            arr.push('<li>'+ item +'</li>');
+        });
+
+        arr.push('</ul>');
+        box.innerHTML = arr.join('');
+
+        // 输出执行time 和 timeEnd之间的代码所消耗的时间
+        console.timeEnd('flag');
+    </script>
+</body>
+</html>

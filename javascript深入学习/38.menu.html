@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #menu ul li {
+            list-style: none;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: beige;
+            float: left;
+            margin-left: 5px;
+        }
+        #menu ul li.current {
+            background-color: burlywood;
+        }
+        #menu ul li a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li class="current"><a href="http://www.baidu.com">首页</a></li>
+            <li><a href="javascript:alert('123')">说说</a></li>
+            <li><a href="javascript:'123'">博客</a></li>
+            <li><a href="javascript:void(0)">相册</a></li>
+            <li><a href="javascript:void(0)">关于</a></li>
+            <li><a href="javascript:void(0)">帮助</a></li>
+        </ul>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script>
+        // void 关键字  void会执行()里面的语句/表达式，总是返回undefined
+
+        // 获取menu中所有a
+        var menu = document.getElementById('menu');
+        // 获取ul
+        // menu.children[0];
+        // menu.getElementsByTagName('ul')[0]
+        // menu.firstElementChild
+        var ul = getFirstElementChild(menu);
+        //console.log(ul);
+        var list = ul.children;
+        // 遍历li
+        var i=0, len = list.length;
+        for(; i<len; i++){
+            // 获取li中的a
+            var link = getFirstElementChild(list[i]);
+            // 注册事件 linkClick后面不带小括号
+            link.onclick = linkClick;
+        }
+
+        // 事件处理函数
+        function linkClick() {
+            // 取消所有li的高亮显示
+            for( i=0; i<len; i++){
+                list[i].className = '';
+            }
+            //当前a标签对应的li高亮显示
+            this.parentNode.className = 'current';
+            return false;
+        }
+    </script>
+</body>
+</html>

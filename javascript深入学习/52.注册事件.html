@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+
+    <script src="js/common.js"></script>
+    <script>
+        var btn = document.getElementById('btn');
+
+        // 好处：可以给同一个元素注册多个事件处理函数
+
+        // add 添加 Event 事件  Listener 监听者（事件处理函数） IE9以后才支持
+        // 第一个参数  事件名称 不带on 
+        // 第二个参数  事件处理函数
+        // 第三个参数  事件冒泡/事件捕获
+        // btn.addEventListener('click', function(){
+        //     alert('abd');
+        // //    alert(this); //触发事件的对象
+        // },false);
+
+        // btn.addEventListener('click', function(){
+        //     alert('hello');
+        // //    alert(this); //触发事件的对象
+        // },false);
+
+
+        // IE9以前 老版本的IE
+        btn.attachEvent('onclick',function(){
+            alert('123');
+            // attachEvent 事件处理函数中的this 指向window
+        });
+
+        addEventListener(btn, 'click', function(){
+            alert(this);
+        });
+    </script>
+</body>
+</html>

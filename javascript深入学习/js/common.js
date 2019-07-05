@@ -30,7 +30,7 @@ function getRandom(min, max) {
 function getFirstElementChild(parent){
     // 如果当前浏览器 支持firstElementChlid
     if(parent.firstElementChild){
-        return firstElementChild;
+        return parent.firstElementChild;
     }
     var node, nodes = parent.childNodes, i=0;
     while (node = nodes[i++]){
@@ -39,4 +39,26 @@ function getFirstElementChild(parent){
         }
     }
     return null;
+}
+
+// 注册事件，处理兼容性问题
+function addEventListener(element, eventName, callback) {
+    if(element.addEventListener) {
+        element.addEventListener(eventName,callback,false);
+    } else if(element.attachEvent) {
+        element.attachEvent('on' + eventName,callback);
+    } else {
+        element['on' + eventName] = callback;
+    }
+}
+
+// 移除事件， 处理兼容性问题
+function removeEventListener(element, eventName, callback) {
+    if(element.removeEventListener) {
+        element.removeEventListener(eventName, callback, false);
+    } else if (element.detachEvent) {
+        element.detachEvent('on' + eventName, callback);
+    } else {
+        element['on' + eventName] = null;
+    }
 }

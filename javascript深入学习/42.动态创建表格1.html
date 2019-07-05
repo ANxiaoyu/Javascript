@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    
+    <script src="js/common.js"></script>
+    <script>
+        // 数据行中数据
+        var bodyData = [
+            {name:'zs', subject:'语文', score:100},
+            {name:'ls', subject:'数学', score:80},
+            {name:'sdb', subject:'体育', score:0},
+            {name:'gw', subject:'英语', score:59},
+            {name:'bzr', subject:'物理', score:50}
+        ];
+
+        // 1 表头
+        var box = document.getElementById('box');
+        var table = document.createElement('table');
+        box.appendChild(table);
+
+        var thead = document.createElement('thead');
+        table.appendChild(thead);
+
+        var tr = document.createElement('tr');
+        thead.appendChild(tr);
+
+        var th = document.createElement('th');
+        tr.appendChild(th);
+        setInnerText(th, '姓名');
+
+        th = document.createElement('th');
+        tr.appendChild(th);
+        setInnerText(th,'科目');
+
+        th = document.createElement('th');
+        tr.appendChild(th);
+        setInnerText(th,'成绩');
+    </script>
+</body>
+</html>
