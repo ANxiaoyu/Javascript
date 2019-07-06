@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text">
+
+    <script>
+        var texts = document.querySelectorAll('input[type=text]');
+
+        // 让某个元素获取焦点
+        //texts[1].focus();
+
+        var i = 0, len = texts.length;
+        for(; i < len; i++){
+            var txt = texts[i];
+            txt.onkeydown = txtKeydown;
+        }
+
+        function txtKeydown(e) {
+            // 当在文本框中按下回车，让下一个文本框获取焦点
+            if(e.keyCode === 13) {
+                // 获取下一个文本框
+                var nextElement = this.nextElementSibling.nextElementSibling;
+                console.log(nextElement);
+                if(nextElement) {
+                    nextElement.focus();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

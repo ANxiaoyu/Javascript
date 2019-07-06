@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text">
+
+    <script>
+        var texts = document.querySelectorAll('input[type=text]');
+        var i=0, len = texts.length;
+        for (; i < len; i++) {
+            var txt = texts[i];
+            txt.onkeydown = txtKeydown;
+        }
+        function txtKeydown(e) {
+            // console.log(e.keyCode);
+            // 13 回车  9 tab
+            if(e.keyCode === 13) {
+                // read only
+                // 在严格模式下，不可以给只读属性赋值
+                e.keyCode = 9;
+            }
+        }
+    </script>
+</body>
+</html>

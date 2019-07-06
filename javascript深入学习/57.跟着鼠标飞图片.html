@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1900px;
+        }
+    </style>
+</head>
+<body>
+    <div>1234</div>
+    <img src="images/tianshi.gif" id="img" alt="">
+
+    <script>
+        //body的有效范围 是body内部元素的范围
+        var img = document.getElementById('img');
+        document.onmousemove = function(e) {
+            console.log('123');
+            e = e || window.event;
+
+            img.style.position = 'absolute';
+
+            // clientX / clientY 获取的是鼠标在可视区中的位置
+            img.style.left = e.clientX + 'px';
+            img.style.top = e.clientY + 'px';
+
+            // // 获取鼠标咋页面中的位置
+            // img.style.left = e.pageX + 'px';
+            // img.style.top = e.pageY + 'px';
+        }
+    </script>
+</body>
+</html>

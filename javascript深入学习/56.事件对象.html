@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+
+    <div id="box">
+
+    </div>
+
+    <script>
+        // var btn = document.getElementById('btn');
+        // btn.onclick = function(e) {
+        //     // 判断是否按下了alt键
+        //     if(e.altKey){
+        //         console.dir(e);
+        //     }
+        //     // 获取事件名称
+        //     console.log(e.type);
+        // }
+
+        // e.type 的作用
+        var box = document.getElementById('box');
+        box.onclick = fn;
+        box.onmouseover = fn;
+        box.onmouseout = fn;
+
+        function fn(e) {
+            // e有兼容性问题 IE9以前不支持
+            // IE的老版本获取事件对象的方式 window.event
+
+            // 处理兼容性
+            e = e || window.event;
+
+            switch(e.type) {
+                case 'click':
+                    console.log('点击事件');
+                    break;
+                case 'mouseover':
+                    console.log('鼠标经过');
+                    break;
+                case 'mouseout':
+                    console.log('鼠标离开');
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+
+    <script>
+        // 移除事件
+        var btn = document.getElementById('btn');
+
+        // btn.onclick = function() {
+        //     alert('hello');
+        //     this.onclick = null;
+        // }
+
+        // 想要移除事件不能使用匿名函数
+        // btn.addEventListener('click', function(){
+        //     alert('hello');
+        //     // 移除事件
+        //     // 第一个参数 事件名称
+        //     // 第二个参数 事件处理函数
+        //     // 第三个参数 事件捕获/事件冒泡
+        //     btn.removeEventListener('click', );
+        // },false);
+
+        // btn.addEventListener('click', btnClick, false);
+        // function btnClick(){
+        //     alert('hello');
+        //     // 移除事件
+        //     this.removeEventListener('click', btnClick, false);
+        // }
+
+        // IE的老版本
+        btn.attachEvent('onclick', btnClick);
+        function btnClick(){
+            alert('hello');
+            // 移除事件
+            btn.detachEvent('onclick', btnClick);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页面滚出距离scroll</title>
+    <style>
+        body {
+            height: 1600px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 获取页面滚动出去的距离
+        // document.documentElement  文档的根元素
+
+        window.onscroll = function () {
+            console.log('documentElement' + document.documentElement.scrollTop);
+            console.log('body' + document.body.scrollTop);
+        }
+
+        // chrom 和 IE11 有兼容性问题
+
+        // 获取页面滚动出去的距离。处理兼容性
+        function getScroll() {
+            return {
+                scrollTop: document.documentElement.scrollTop || document.body.scrollTop,
+                scrollLeft: document.documentElement.scrollLeft || document.body.scrollLeft
+            }
+        }
+    </script>
+</body>
+</html>
