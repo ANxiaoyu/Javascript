@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+
+    <script>
+        // location 属性  href search hash
+        // location 方法  assgin reload replace
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            // 有一个参数
+            // false 可能从缓存读取 f5
+            // true  强制从服务器获取页面 ctrl+f5
+            // location.reload(true);
+
+            // 跳转  会记录历史
+            // location.assign('http://www.baidu.com');
+
+            // 替换地址栏中的地址，不会记录历史
+            location.replace('http://www.baidu.com');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    5秒后跳转
+    <input type="button" value="取消" id="btn">
+
+    <script>
+        var timeId = setTimeout(function(){
+            // 5秒后跳转
+            location.href = 'http://www.baidu.com'
+        },5000);
+        console.log(timeId);
+
+        var btn = document.getElementById('btn');
+        btn.onclick = function() {
+            clearTimeout(timeId);
+        }
+    </script>
+</body>
+</html>

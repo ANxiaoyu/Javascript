@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .nav {
+            height: 30px;
+            background: #036663;
+            border-bottom: 1px solid #369;
+            line-height: 30px;
+            padding-left: 30px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+        }
+        .d_box {
+            width: 400px;
+            height: 300px;
+            border: 5px solid #eee;
+            box-shadow: 2px 2px 2px 2px #666;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            background-color: white;
+
+            /* 不让文字被选中*/
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .hd {
+            width: 100%;
+            height: 25px;
+            background-color: #7c9299;
+            border-bottom: 1px solid #369;
+            line-height: 25px;
+            color: white;
+            cursor: move;
+        }
+        #box_close {
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="javascript:;" id="register">注册信息</a>
+    </div>
+    <div class="d_box" id="d_box">
+        <div class="hd" id="drop">注册信息(可以拖拽)
+            <span id="box_close">【关闭】</span>
+        </div>
+        <div class="bd"></div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script>
+        var d_box = document.getElementById('d_box');
+        var drop = document.getElementById('drop');
+        // 1 鼠标在box中的头部按下的时候，计算鼠标在盒子中的坐标
+        // 1.1 给头部注册鼠标按下的事件
+        drop.onmousedown = function(e) {
+            e = e || event;
+            // 1.2 计算鼠标在盒子中的坐标 = 鼠标在页面中坐标 - 盒子在页面中的坐标
+            var x = getPage(e).pageX - d_box.offsetLeft;
+            var y = getPage(e).pageY - d_box.offsetTop;
+
+            // 2 鼠标在整个页面移动的过程中，计算盒子在页面中的坐标
+            document.onmousemove = function(e) {
+                // 计算盒子在页面中的坐标 = 鼠标在页面中的坐标 - 鼠标在盒子中的坐标
+                var boxX = getPage(e).pageX - x;
+                var boxY = getPage(e).pageY - y;
+
+                d_box.style.left = boxX + 'px';
+                d_box.style.top = boxY + 'px';
+            }
+        }
+
+        // 3 当鼠标弹起的时候，移除onmousemove事件
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    </script>
+</body>
+</html>

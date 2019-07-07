@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // onload 页面加载完毕执行（DOM元素加载完毕，当外部文件加载完毕）
+        onload = function () {
+            var box = document.getElementById('box');
+            console.log(box);
+            console.log('hello');
+        }
+
+        // 当关闭网页的时候执行
+        onunload = function () {
+            console.log('再见');
+        }
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

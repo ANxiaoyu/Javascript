@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    请仔细阅读注册协议。。。。。。
+    <br>
+    <input type="button" value="同意(请仔细阅读10秒)" id="btn" disabled="disabled">
+
+    <script>
+        var btn = document.getElementById('btn');
+
+        var count = 10;
+        var timerId = setInterval(function () {
+            count--;
+            if(count > 0) {
+                // 如果不到10秒，修改按钮上的数字
+                btn.value = '同意(请仔细阅读'+ count +'秒)';
+            } else {
+                // 到时间了
+                btn.value = '同意';
+                btn.disabled = false;
+                // 停止定时器
+                clearInterval(timerId);
+            }
+        },1000);
+    </script>
+</body>
+</html>
