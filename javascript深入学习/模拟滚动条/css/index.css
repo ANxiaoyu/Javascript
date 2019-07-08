@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.box {
+    width: 300px;
+    height: 500px;
+    border: 1px solid red;
+    margin: 100px;
+    position: relative;
+    overflow: hidden;
+
+    /* 不让文字被选中 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.content {
+    padding: 5px 18px 5px 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.scroll {
+    width: 18px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #eee;
+}
+.bar {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: orange;
+    border-radius: 10px;
+    cursor: pointer;
+}
