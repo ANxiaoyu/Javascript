@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 300px;
+            height: 300px;
+            border: 10px solid black;
+            margin: 50px;
+            padding: 10px;
+            background-color: yellowgreen;
+            position: relative;
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            border: 20px solid black;
+            margin: 50px;
+            padding: 20px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2"></div>
+    </div>
+
+    <script>
+        var box2 = document.getElementById('box2');
+
+        // clientWidth : 内容 + padding
+        console.log(box2.clientWidth);
+        console.log(box2.clientHeight);
+
+        // offsetWidth : 内容 + padding + border
+        console.log(box2.offsetWidth);
+        console.log(box2.offsetHeight);
+
+        // 上边框的宽度
+        console.log(box2.clientTop);
+        // 左边框的宽度
+        console.log(box2.clientLeft);
+    </script>
+</body>
+</html>

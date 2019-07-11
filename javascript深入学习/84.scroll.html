@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 300px;
+            height: 300px;
+            border: 10px solid black;
+            margin: 50px;
+            padding: 10px;
+            background-color: orange;
+            position: relative;
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            border: 20px solid black;
+            margin: 50px;
+            padding: 20px;
+            position: absolute;
+            overflow: auto;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">
+            这是测试的内容，这是测试的内容，
+            这是测试的内容，这是测试的内容，
+            这是测试的内容，这是测试的内容，
+            这是测试的内容，这是测试的内容，
+            这是测试的内容，这是测试的内容，
+            这是测试的内容，这是测试的内容，
+            这是测试的内容，这是测试的内容，
+            这是测试的内容，这是测试的内容，
+        </div>
+    </div>
+
+    <script>
+        var box2 = document.getElementById('box2');
+
+        // scrollWidth : 内容 + padding
+        console.log(box2.scrollWidth);
+        console.log(box2.scrollHeight);
+
+        // div本身的大小 + padding(不包括超出的部分)
+        console.log(box2.clientHeight);
+        // width + padding + margin
+        console.log(box2.offsetHeight);
+
+        box2.onscroll = function () {
+            console.log(box2.scrollTop);
+            console.log(box2.scrollLeft);
+        }
+    </script>
+</body>
+</html>

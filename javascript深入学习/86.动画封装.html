@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            position: absolute;
+            margin-top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="动画" id="btn">
+    <div id="box"></div>
+    <div id="box1"></div>
+
+    <script>
+        var btn = document.getElementById('btn');
+
+        btn.onclick = function() {
+            var box = document.getElementById('box');
+            var box1 = document.getElementById('box1');
+
+            animate(box);
+            animate(box1);
+        }
+
+        // 只生成一个div执行动画的定时器
+        var timerId = null;
+        function animate(element) {
+            // 判断之前是否开启了定时器
+            if(timerId) {
+                clearInterval(timerId);
+            }
+
+            timerId = setInterval(function () {
+                // 目标位置
+                var target = 1000;
+                // 当前坐标
+                var current = element.offsetLeft;
+                //步进
+                var step = 10;
+                if(current >= target) {
+                    element.style.left = target + 'px';
+                    clearInterval(timerId);
+                    return;
+                }
+
+                current += step;
+                element.style.left = current + 'px';
+            },20)
+        }
+    </script>
+</body>
+</html>
